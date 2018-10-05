@@ -1,0 +1,47 @@
+script(type='text/javascript' src='/socket.io/socket.io.js')
+script(type='text/javascript' src='/js/leaflet.js')
+script(type='text/javascript' src='/js/status.js')
+
+.panel.panel-success
+    .panel-heading IP info
+    .panel-body
+      p
+        span.left Public IP:
+        span#publicip.right
+      p
+        span.left City:
+        span.right#city.
+      p
+        span.left Country:
+        span.right#country
+
+      #map
+
+.panel.panel-success
+  .panel-heading DNS masqued hosts
+  .panel-body#dnsmasqhosts
+
+.panel.panel-success
+  .panel-heading Blocked IPs
+  .panel-body#blockedips
+
+.panel.panel-success
+  .panel-heading Buffering
+  .panel-body
+    p
+      span.left Status
+      span.right#bufferingstatus
+    p
+      span.left Type
+      span.right#bufferingtype
+
+.panel.panel-success
+  .panel-heading Connected clients
+  .panel-body      
+    table#connected
+      thead 
+        tr
+          td Name
+          td IP
+          td Mac
+      tbody#connected_body

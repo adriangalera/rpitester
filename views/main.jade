@@ -1,0 +1,71 @@
+script(type='text/javascript' src='/js/main.js')
+- var buffering_types = ["Regular (1Mbit)","Bad (0.5 Mbit)","Very-bad (0.2 Mbit)","Terribly-bad (0.1 Mbit)"]
+mixin mainpanel(id,title)
+  - var idcollapse = id+"collapse"
+  .panel.panel-primary(id=id)
+    .panel-heading
+      span(data-toggle='collapse',data-target="#"+idcollapse,href="#"+idcollapse).left.collapsed #{title}
+    .panel-body(id=idcollapse).collapse
+      if(block)
+        block
+
++mainpanel('dnspanel','DNS masquerade configuration')
+  form
+    table.table.table-condensed#dnstable
+      tr
+        th Host
+        th IP
+
+  button(type="submit").btn.btn-primary#adddns Add
+  button(type="submit").btn.btn-default#senddns Submit
++mainpanel('bufferingpanel','Buffering configuration')
+  form
+    div.form-group
+      label(for="enable") Enable
+      input(type="checkbox",name="enable-buf")#enable-buf
+    div#formbuftype.form-group
+      label(for="type") Type
+      select#buftype
+        each type,i in buffering_types
+          option(value=i) #{type}
+    button(type="submit").btn.btn-default#sendbuffer Submit
+
++mainpanel('blockip','IP Blocking configuration')
+  form
+    table.table.table-condensed#iptable
+      tr
+        th IP
+
+  button(type="submit").btn.btn-primary#addip Add
+  button(type="submit").btn.btn-default#sendip Submit
++mainpanel('vpn','VPN connection')
+  form
+    div.form-group
+      label(for="enable") Enable
+      input(type="checkbox",name="enable-vpn")#enable-vpn
+    div#formvpnconnection.form-group
+      label(for="type") Type
+      select#vpncon
+    small * Please, be patient setting a VPN connection will last aprox. 30 seconds
+    br
+    p
+      button(type="submit").btn.btn-default#sendvpn Submit
++mainpanel('sniffer','Packet Sniifer')
+    form.form-inline
+      div.form-group
+        label(for="device") Device
+        select#snifferDevice.form-control
+          option(value=eth0) eth0
+          option(value=wlan0) wlan0
+      div.form-group
+        label(for="enable") Filter
+        input(type="text", placeholder="", size=50)#sniffer_filter.form-control
+      div.form-group
+        button(type="submit").btn.btn-default#sniffStartBtn Start sniffer
+      div.form-group
+        button(type="submit").btn.btn-default#sniffStopBtn Stop sniffer        
+    ul#sniffercontainer
+
++mainpanel('https','Https Packet Sniifer')
+  button(type="submit").btn.btn-default#flushHttps Flush data
+  ul#httpsContainer

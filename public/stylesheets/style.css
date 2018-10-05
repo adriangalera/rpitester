@@ -1,0 +1,67 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.right{
+  padding-left: 4px;
+}
+.left{
+  font-weight: bold;
+}
+#iptable{
+  width:40%
+}
+#map{
+  height: 200px;
+}
+
+#httpsContainer{
+	list-style: none;
+  padding: 0px;
+  padding-top: 10px;
+}
+
+.https_time{
+	float: left;
+}
+
+.https_url {
+	padding-left: 15%;
+}
+
+#sniffercollapse form div  {
+  padding: 10px;
+}
+
+#sniffercollapse form label  {
+  padding: 5px;
+}
+
+#sniffercontainer{
+  list-style: none;
+  padding: 0px;
+  padding-top: 10px;
+}
+
+.snif{
+  float: left;
+  padding: 10px;
+}
+
+.snif_row{
+  float:left;
+  width:100%;
+}
+
+#connected thead td {
+  padding: 5px;
+  font-weight: bold;
+}
+
+#connected td{
+ padding: 5px;
+}
